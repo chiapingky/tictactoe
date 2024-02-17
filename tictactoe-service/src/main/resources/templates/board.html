@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-
 <head>
-  <title>Tic Tac Toe</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="../static/style/board.css" th:href="@{/style/board.css}">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../static/style/board.css" th:href="@{/style/board.css}">
 </head>
 <body>
-  <div class="container full">
+<div class="container full">
     <div class="board">
-      <div class="grid-container">
-        <!-- Use JavaScript to dynamically generate grid items -->
-      </div>
+        <div class="grid-container">
+            <!-- Use JavaScript to dynamically generate grid items -->
+        </div>
     </div>
     <p id="status-text" class="text status">text will be displayed here</p>
     <p id="difficulty" class="text status" th:text="'Difficulty: ' + ${game.gameDifficulty}"></p>
     <div id="player-status" class="versus">
-      <div class="status-card">
-        <h6 id="player-name" class="text">Player Name</h6>
-        <p id="player-role" class="text">. . . . .</p>
-      </div>
-      <form id="leave-match" th:action="@{/leave}" method="post">
-        <button class="btn waves-effect waves-light" type="button" onclick="leaveMatch()">Leave match</button>
-      </form>
-      <div class="status-card">
-        <h6 id="opponent-name" class="text opponent">Opponent Name</h6>
-        <p id="opponent-role" class="text opponent">. . . . .</p>
-      </div>
+        <div class="status-card">
+            <h6 id="player-name" class="text">Player Name</h6>
+            <p id="player-role" class="text">. . . . .</p>
+        </div>
+        <form id="leave-match" th:action="@{/leave}" method="post">
+            <button class="btn waves-effect waves-light" type="button" onclick="leaveMatch()">Leave match</button>
+        </form>
+        <div class="status-card">
+            <h6 id="opponent-name" class="text opponent">Opponent Name</h6>
+            <p id="opponent-role" class="text opponent">. . . . .</p>
+        </div>
     </div>
-  </div>
+</div>
 </body>
 <script th:inline="javascript">
     var game = /*[[${game}]]*/{};
     var playerName = /*[[${username}]]*/ "player1";
     var action = /*[[${action}]]*/ "";
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script src="../static/js/board.js" th:src="@{/js/board.js}"></script>
-
 </html>

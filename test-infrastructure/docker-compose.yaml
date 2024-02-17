@@ -6,7 +6,7 @@ services:
       - 8080:8080
     volumes:
       - ../tictactoe-service/build/libs/tictactoe-service.jar:/service.jar
-    entrypoint: ["java", "-jar", "-Dspring.profiles.active=default", "service.jar"]
+    entrypoint: ["java", "-jar", "-Dspring.profiles.active=local", "service.jar"]
     healthcheck:
       test: ["CMD-SHELL", "curl --fail http://service:8080/health || exit 1"]
       interval: 3s
