@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'TicTacToe'
+rootProject.name = 'tictactoe'
 
 def includeAllDirectories() {
     def directories = rootProject.projectDir;
