@@ -85,7 +85,7 @@ public class RuleCheckingServiceTest {
         String cross = getCrossString();
         String round = getRoundString();
         Game game = new Game(
-                UUID.randomUUID(),
+                UUID.randomUUID().toString(),
                 GameStatus.ONGOING,
                 GameDifficulty.NORMAL,
                 generate3x3BoardCrossWin(),
@@ -102,7 +102,7 @@ public class RuleCheckingServiceTest {
         String cross = getCrossString();
         String round = getRoundString();
         Game game = new Game(
-                UUID.randomUUID(),
+                UUID.randomUUID().toString(),
                 GameStatus.ONGOING,
                 GameDifficulty.NORMAL,
                 generate6x6BoardCrossWinHardRoundWinNormal(),
@@ -119,7 +119,7 @@ public class RuleCheckingServiceTest {
         String cross = getCrossString();
         String round = getRoundString();
         Game game = new Game(
-                UUID.randomUUID(),
+                UUID.randomUUID().toString(),
                 GameStatus.ONGOING,
                 GameDifficulty.HARD,
                 generate3x3BoardCrossWin(),
@@ -136,7 +136,7 @@ public class RuleCheckingServiceTest {
         String cross = getCrossString();
         String round = getRoundString();
         Game game = new Game(
-                UUID.randomUUID(),
+                UUID.randomUUID().toString(),
                 GameStatus.ONGOING,
                 GameDifficulty.HARD,
                 generate3x3BoardCrossWin(),
@@ -153,7 +153,7 @@ public class RuleCheckingServiceTest {
         String cross = getCrossString();
         String round = getRoundString();
         Game game = new Game(
-                UUID.randomUUID(),
+                UUID.randomUUID().toString(),
                 GameStatus.ONGOING,
                 GameDifficulty.HARD,
                 generate6x6BoardNoWinHardRoundWinNormal(),
@@ -170,7 +170,7 @@ public class RuleCheckingServiceTest {
         String cross = getCrossString();
         String round = getRoundString();
         Game game = new Game(
-                UUID.randomUUID(),
+                UUID.randomUUID().toString(),
                 GameStatus.ONGOING,
                 GameDifficulty.NORMAL,
                 generate6x6BoardRoundWinNormal(),
@@ -187,7 +187,7 @@ public class RuleCheckingServiceTest {
         String cross = getCrossString();
         String round = getRoundString();
         Game game = new Game(
-                UUID.randomUUID(),
+                UUID.randomUUID().toString(),
                 GameStatus.ONGOING,
                 GameDifficulty.NORMAL,
                 generate6x6BoardCrossWinNormal(),
