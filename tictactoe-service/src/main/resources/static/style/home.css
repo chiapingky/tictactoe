@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.scroll {
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scroll::-webkit-scrollbar {
+    overflow: auto;
+    display: none;
+  }
+
+.limit {
+    max-height: 150px;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0;
+}

@@ -1,0 +1,40 @@
+import org.gradle.api.initialization.resolve.RepositoriesMode
+
+pluginManagement {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories{
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+rootProject.name = 'TicTacToe'
+
+def includeAllDirectories() {
+    def directories = rootProject.projectDir;
+    directories.eachDir {directory ->
+        if (isBuildDirectory(directory)) {
+            include "${directory.path.substring(directories.path.length()).replace(File.separator, ":")}"
+        }
+    }
+}
+
+def isBuildDirectory(File dir) {
+    return file("$dir/build.gradle").exists()
+}
+
+includeAllDirectories()
+include 'user-data'
+include 'board-data'
+include 'game-data'
+include 'gameplay'
+include 'controller'
+include 'account'
+

@@ -1,0 +1,11 @@
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.data:spring-data-jpa"
+    implementation "org.springframework:spring-messaging"
+
+    implementation project(":board-data")
+    implementation project(":gameplay")
+    implementation project(":game-data")
+    implementation project(":manage-account")
+    implementation project(":user-data")
+}

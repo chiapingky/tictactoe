@@ -1,0 +1,27 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.2' apply false
+}
+
+group = 'org.chiapingky'
+version = '1.0'
+
+subprojects {
+    group = 'org.chiapingky'
+
+    apply plugin: 'java'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+    }
+
+    test {
+        useTestNG()
+    }
+
+    dependencies {
+        implementation(platform(SpringBootPlugin.BOM_COORDINATES))
+    }
+}

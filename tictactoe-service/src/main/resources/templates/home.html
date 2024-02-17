@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Game Lobby</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="../static/style/home.css" th:href="@{/style/home.css}">
+  </head>
+  <body>
+  <div class="container">
+      <div class="row">
+          <h5 th:if="${username}" th:text="'Hi ' + ${username} + ', welcome to Tic Tac Toe!'"></h5>
+          <h5 th:unless="${username}" th:text="'You will have to login to play'"></h5>
+          <h5 th:if="${errorCreate}" th:text="${errorCreate}" th:style="${'color: red;'}"></h5>
+          <div class="col s6">
+              <h4>Create New Room</h4>
+              <form th:action="@{/create}" th:object="${newGameForm}" method="post">
+                <div class="input-field">
+                    <select id="difficulty" th:field="*{difficulty}">
+                      <option value="--SELECT DIFFICULTY--">--SELECT DIFFICULTY--</option>
+                      <option th:each="diff : ${diffList}" th:value="${diff}" th:text="${diff}"></option>
+                    </select>
+                    <label for="difficulty">Difficulty</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" id="grid-size" min="3" max="10" th:field="*{gridSize}">
+                    <label for="grid-size">Grid Size</label>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit">Create Room</button>
+              </form>
+          </div>
+          <div class="col s6">
+              <h4>Available Rooms</h4>
+              <ul class="collection scroll limit" id="room-list">
+                  <li class="collection-item" th:if="${#lists.isEmpty(rooms)}">No room available</li>
+                  <li class="collection-item" th:each="room : ${rooms}">
+                      <form th:action="@{/join/} + ${room.gameId}" th:object="${joinRequest}" method="post">
+                          <div class="row no-bottom-margin">
+                              <div class="col">
+                                  <div th:text="'Game ID: ' + ${room.gameId}"> text here
+                                  </div>
+                                  <div th:text="'Room Owner: ' + ${room.roomOwner}"> text here
+                                  </div>
+                                  <div th:text="'Difficulty: ' + ${room.difficulty}"> text here
+                                  </div>
+                              </div>
+                              <button class="btn waves-effect waves-light col right">Join Room</button>
+                          </div>
+                      </form>
+                  </li>
+                  <!-- Dynamically populated list items -->
+              </ul>
+          </div>
+      </div>
+      <form class="center" th:if="${username}" th:action="@{/logout}" method="post">
+          <button class="btn waves-effect waves-light" type="submit">Logout</button>
+      </form>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="../static/js/home.js" th:src="@{/js/home.js}"></script>
+  </body>
+</html>
