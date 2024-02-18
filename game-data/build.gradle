@@ -3,5 +3,5 @@ dependencies {
     implementation "org.springframework.data:spring-data-jpa"
 
     implementation project(":board-data")
-    implementation project(":user-data")
+    implementation project(":player-data")
 }

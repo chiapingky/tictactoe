@@ -4,3 +4,7 @@ management:
       base-path: /
       exposure:
         include: health
+
+backend:
+  jwt:
+    secret: 6d2de20d8e20fc8abfcf84d46461e7a938a033d62b35ca01f189120edd3f744e

@@ -7,5 +7,5 @@ dependencies {
     implementation project(":gameplay")
     implementation project(":game-data")
     implementation project(":manage-account")
-    implementation project(":user-data")
+    implementation project(":player-data")
 }

@@ -1,6 +1,13 @@
 dependencies {
+    implementation "io.jsonwebtoken:jjwt-api:${jwt_version}"
+    implementation "io.jsonwebtoken:jjwt-impl:${jwt_version}"
+    implementation "io.jsonwebtoken:jjwt-jackson:${jwt_version}"
+    implementation "org.springframework.security:spring-security-core"
+    implementation "org.springframework.security:spring-security-web"
     implementation "org.springframework.boot:spring-boot-starter-web"
     implementation "org.springframework.data:spring-data-jpa"
+    implementation "org.springframework:spring-web"
+    implementation "org.springframework:spring-context"
 
-    implementation project(":user-data")
+    implementation project(":player-data")
 }

@@ -43,9 +43,9 @@ public class GameplayService {
             Arrays.fill(board, Shape.BLANK);
             String crossPlayer = null, roundPlayer = null;
             if (new Random().nextBoolean())
-                crossPlayer = player.getUserName();
+                crossPlayer = player.getUsername();
             else
-                roundPlayer = player.getUserName();
+                roundPlayer = player.getUsername();
             Board gameboard = new Board(UUID.randomUUID().toString(), gridSize, board);
             Game newGame = new Game(
                     UUID.randomUUID().toString(),
@@ -70,12 +70,12 @@ public class GameplayService {
             Game game = getGameById(gameId);
             if (game.getCrossPlayer() != null) {
                 if (!game.getCrossPlayer().equals(joiner))
-                    game.setRoundPlayer(player.getUserName());
+                    game.setRoundPlayer(player.getUsername());
                 else
                     throw new GameplayException("Can't join your own room");
             } else {
                 if (!game.getRoundPlayer().equals(joiner))
-                    game.setCrossPlayer(player.getUserName());
+                    game.setCrossPlayer(player.getUsername());
                 else
                     throw new GameplayException("Can't join your own room");
             }
