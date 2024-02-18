@@ -24,7 +24,7 @@ Web service to play tic-tac-toe game
 1. Make sure docker is already running
 2. Open a terminal
 3. Run `./gradlew clean build` command to create updated `.jar` file
-4. Run `cd service-test/test-infrastructure/` to go to `test-infrastructure` directory
+4. Run `cd test-infrastructure` to go to `test-infrastructure` directory
 5. Run `docker compose up service`
 6. After a few moment you can run `docker ps` to check the containers status
 7. Run `docker ps -aq | % { docker rm -f $_ }` for Windows or `docker rm -f $(docker ps -aq)` for Unix System to shut down and delete all containers
